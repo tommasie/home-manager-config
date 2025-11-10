@@ -73,25 +73,11 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   
-  programs.git = {
-    enable = true;
-    userName = "Thomas COLLERTON";
-    userEmail = "thomas.collerton@proton.me";
-    aliases = {
-      co = "checkout";
-      st = "status";
-      br = "branch";
-    };
-    extraConfig = {
-      core.editor = "vim";
-      init.defaultBranch = "main";
-    };
-  };
-
   imports = [
     ./hyprland.nix
     ./firefox.nix
     ./nvim.nix
+    ./git.nix
   ];
 
 }
