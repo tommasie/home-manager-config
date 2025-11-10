@@ -11,7 +11,7 @@
     settings = {
       input = {
         kb_layout = "us";
-	      kb_variant = "intl";
+        kb_variant = "intl";
       };
       "$mod" = "SUPER";
       bind = [

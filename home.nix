@@ -83,6 +83,7 @@
       br = "branch";
     };
     extraConfig = {
+      core.editor = "vim";
       init.defaultBranch = "main";
     };
   };
