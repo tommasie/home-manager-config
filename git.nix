@@ -3,8 +3,8 @@
     enable = true;
     settings = {
       user = {
-        name = "Thomas COLLERTON";
-        email = [ "thomas.collerton@proton.me" ];
+        name = "Thomas Collerton";
+        email = [ "tho.collerton@gmail.com" ];
       };
       alias = {
         co = "checkout";
