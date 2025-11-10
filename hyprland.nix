@@ -11,26 +11,32 @@
     settings = {
       input = {
         kb_layout = "us";
-	kb_variant = "intl";
+	      kb_variant = "intl";
       };
       "$mod" = "SUPER";
       bind = [
         "$mod, F, exec, firefox"
-	"$mod, K, exec, kitty"
-	"$mod, M, exit"
+        "$mod, K, exec, kitty"
+        "$mod, M, exit"
       ]
       ++ (
         # workspaces
-	# binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-	builtins.concatLists(builtins.genList (i:
-	  let ws = i + 1;
-	  in [
-	    "$mod, code:1${toString i}, workspace, ${toString ws}"
-	    "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-	  ]
+	      # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        builtins.concatLists(builtins.genList (i:
+	        let ws = i + 1;
+	        in [
+	          "$mod, code:1${toString i}, workspace, ${toString ws}"
+	          "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+	        ]
         )
-	9)
-     );
+	      9)
+      )
+      ++ [
+        "$mod, left, movefocus, l"
+        "$mod, right, movefocus, r"
+        "$mod, up, movefocus, u"
+        "$mod, down, movefocus, d"
+      ];
     };
   };
 }
