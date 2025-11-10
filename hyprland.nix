@@ -1,6 +1,9 @@
 {pkgs, ...}:
+
+let
+  waybar = pkgs.waybar + "/bin/waybar";
+in
 {
-  
   programs.kitty.enable = true; # Default TTY for Hyprland
   wayland.windowManager.hyprland = {
     enable = true;
@@ -40,6 +43,13 @@
         "$mod, up, movefocus, u"
         "$mod, down, movefocus, d"
       ];
+      exec-once = [
+        waybar
+      ];
     };
+  };
+
+  programs.waybar = {
+    enable = true;
   };
 }
