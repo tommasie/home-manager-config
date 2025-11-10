@@ -78,6 +78,7 @@
     ./firefox.nix
     ./nvim.nix
     ./git.nix
+    ./vscode.nix
   ];
 
 }
