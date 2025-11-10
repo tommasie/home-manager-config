@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.git = {
     enable = true;
@@ -13,5 +12,9 @@
       core.editor = "vim";
       init.defaultBranch = "main";
     };
+  };
+
+  programs.gh = {
+    enable = true;
   };
 }

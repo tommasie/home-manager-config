@@ -9,6 +9,9 @@
     portalPackage = null;
 
     settings = {
+#      monitor = [
+#        "eDP-1,1440x900@60,0x0,1"
+#      ];
       input = {
         kb_layout = "us";
         kb_variant = "intl";
