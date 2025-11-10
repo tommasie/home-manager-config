@@ -72,13 +72,13 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  
+
   imports = [
     ./hyprland.nix
     ./firefox.nix
     ./nvim.nix
     ./git.nix
-    ./vscode.nix
+    # ./vscode.nix
+    ./fish.nix
   ];
-
 }

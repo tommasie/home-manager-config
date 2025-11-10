@@ -1,4 +1,4 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 let
   waybar = pkgs.waybar + "/bin/waybar";
@@ -12,9 +12,9 @@ in
     portalPackage = null;
 
     settings = {
-#      monitor = [
-#        "eDP-1,1440x900@60,0x0,1"
-#      ];
+      #      monitor = [
+      #        "eDP-1,1440x900@60,0x0,1"
+      #      ];
       input = {
         kb_layout = "us";
         kb_variant = "intl";
@@ -27,15 +27,19 @@ in
       ]
       ++ (
         # workspaces
-	      # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-        builtins.concatLists(builtins.genList (i:
-	        let ws = i + 1;
-	        in [
-	          "$mod, code:1${toString i}, workspace, ${toString ws}"
-	          "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-	        ]
+        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        builtins.concatLists (
+          builtins.genList (
+            i:
+            let
+              ws = i + 1;
+            in
+            [
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ]
+          ) 9
         )
-	      9)
       )
       ++ [
         "$mod, left, movefocus, l"

@@ -1,4 +1,9 @@
-{ inputs, pkgs, lib, ...}:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   programs.firefox = {
@@ -9,7 +14,10 @@
       isDefault = true;
       search = {
         default = "ddg";
-        order = [ "ddg" "google" ];
+        order = [
+          "ddg"
+          "google"
+        ];
         force = true;
         engines = {
           bing.metaData.hidden = true;
