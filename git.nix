@@ -1,14 +1,16 @@
 {
   programs.git = {
     enable = true;
-    userName = "Thomas COLLERTON";
-    userEmail = "thomas.collerton@proton.me";
-    aliases = {
-      co = "checkout";
-      st = "status";
-      br = "branch";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Thomas COLLERTON";
+        email = [ "thomas.collerton@proton.me" ];
+      };
+      alias = {
+        co = "checkout";
+        st = "status";
+        br = "branch";
+      };
       core.editor = "vim";
       init.defaultBranch = "main";
     };
