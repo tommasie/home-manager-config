@@ -8,12 +8,19 @@
     vimdiffAlias = true;
 
     opts = {
-      relativenumber = true;
+      #      relativenumber = true;
       number = true;
       expandtab = true;
       tabstop = 2;
       shiftwidth = 2;
     };
+
+    keymaps = [
+      {
+        action = "Neotree filesystem reveal left";
+        key = "<leader>tt";
+      }
+    ];
 
     autoCmd = [
       {
@@ -28,6 +35,8 @@
 
     plugins = {
       nix.enable = true;
+
+      rustaceanvim.enable = true;
 
       lightline.enable = true;
 

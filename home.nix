@@ -17,7 +17,11 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
+    nix-direnv
+    direnv
+    grc
+    wl-clipboard
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -64,11 +68,29 @@
   #  /etc/profiles/per-user/thomas/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    GH_TOKEN = "";
+    GH_TOKEN = "$(cat ${config.sops.secrets.github_token.path})";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  dconf = {
+    enable = true;
+    settings."org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = with pkgs.gnomeExtensions; [
+        clipboard-history.extensionUuid
+        clipmaster.extensionUuid
+      ];
+    };
+  };
+
+  sops = {
+    defaultSopsFile = ./secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.keyFile = "/home/thomas/.config/sops/age/keys.txt";
+    secrets.github_token = { };
+  };
 
   imports = [
     # ./hyprland.nix
