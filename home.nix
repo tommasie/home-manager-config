@@ -97,7 +97,6 @@
     ./firefox.nix
     ./nixvim.nix
     ./git.nix
-    # ./vscode.nix
     ./fish.nix
     ./obsidian.nix
     ./zellij.nix
