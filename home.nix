@@ -22,6 +22,12 @@
     direnv
     grc
     wl-clipboard
+    gnomeExtensions.clipboard-history
+    gnomeExtensions.vitals
+    gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.user-themes
+    gnomeExtensions.dash-to-panel
+    # gnomeExtensions.clipmaster
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -79,10 +85,12 @@
   dconf = {
     enable = true;
     settings."org/gnome/shell" = {
+      always-show-log-out = true;
       disable-user-extensions = false;
-      enabled-extensions = with pkgs.gnomeExtensions; [
-        clipboard-history.extensionUuid
-        clipmaster.extensionUuid
+      enabled-extensions = [
+        "clipboard-history@alexsaveau.dev"
+        #"clipmaster@gnome.extension"
+        "Vitals@CoreCoding.com"
       ];
     };
   };
