@@ -13,6 +13,7 @@
       };
       core.editor = "vim";
       init.defaultBranch = "main";
+      safe.directory = "*";
     };
   };
 
