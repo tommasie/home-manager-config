@@ -30,6 +30,7 @@
         privacy-badger
         proton-pass
         proton-vpn
+        tree-style-tab
       ];
       settings = {
         "browser.startup.page" = 3; # Restore previous session's tabs
